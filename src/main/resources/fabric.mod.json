@@ -3,10 +3,10 @@
   "id": "modid",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "More Copper Blocks",
+  "description": "Adds More Copper Blocks",
   "authors": [
-    "Me!"
+    "Rubyboat1207"
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
@@ -19,7 +19,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleMod"
+      "com.rubyboat.morecopper.Main"
     ]
   },
   "mixins": [

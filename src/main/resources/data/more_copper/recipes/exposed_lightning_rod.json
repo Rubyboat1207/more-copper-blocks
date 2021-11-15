@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#",
+        "C"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:exposed_copper"
+        },
+        "C": {
+            "item": "minecraft:copper_ingot"
+        }
+    },
+    "result": {
+        "item": "more_copper:exposed_lightning_rod",
+        "count": 1
+    }
+}

@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "more_copper:cut_copper_wall",
+    "more_copper:exposed_cut_copper_wall",
+    "more_copper:weathered_cut_copper_wall",
+    "more_copper:oxidized_cut_copper_wall"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#",
+        "C"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:weathered_copper"
+        },
+        "C": {
+            "item": "minecraft:copper_ingot"
+        }
+    },
+    "result": {
+        "item": "more_copper:weathered_cut_copper_wall",
+        "count": 1
+    }
+}
