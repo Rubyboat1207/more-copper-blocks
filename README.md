@@ -1,8 +1,12 @@
-# Fabric Example Mod
+# More Copper Blocks Mod
+![Requires Fabric API](https://camo.githubusercontent.com/38956b9a3cae432eb222ab32b5b7292242d8f10cc9666b5be4af4b99f7b7cc46/68747470733a2f2f692e696d6775722e636f6d2f486162565a4a526d2e706e67)
 
-## Setup
+## Installation
+put in mods folder
 
-For setup instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tutorial:setup) that relates to the IDE that you are using.
+## Screenshots
+![Image of custom blocks](https://i.imgur.com/8aGdtur.png)
+
 
 ## License
 
