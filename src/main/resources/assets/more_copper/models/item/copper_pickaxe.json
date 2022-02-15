@@ -1,6 +1,9 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "more_copper:item/weathered_copper_pickaxe"
-  }
+    "layer0": "more_copper:item/copper_pickaxe"
+  },
+  "overrides": [
+    { "predicate": {"more_copper:blocks_mined": 100}, "model": "more_copper:item/exposed_copper_pickaxe"}
+  ]
 }

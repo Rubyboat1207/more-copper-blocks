@@ -20,6 +20,9 @@
   "entrypoints": {
     "main": [
       "com.rubyboat.morecopper.Main"
+    ],
+    "client" : [
+      "com.rubyboat.morecopper.ClientMain"
     ]
   },
   "mixins": [
@@ -31,8 +34,5 @@
     "fabric": "*",
     "minecraft": "1.18.x",
     "java": ">=16"
-  },
-  "suggests": {
-    "another-mod": "*"
   }
 }
