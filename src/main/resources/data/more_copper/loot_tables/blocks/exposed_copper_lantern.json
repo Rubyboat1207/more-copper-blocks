@@ -1,0 +1,13 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "more_copper:exposed_copper_lantern"
+        }
+      ]
+    }
+  ]
+}

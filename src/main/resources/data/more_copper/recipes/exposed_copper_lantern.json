@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "pattern": [
+    "#",
+    "C"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:lantern"
+    },
+    "C": {
+      "item": "minecraft:exposed_cut_copper"
+    }
+  },
+  "result": {
+    "item": "more_copper:exposed_copper_lantern",
+    "count": 1
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "more_copper:item/oxidized_copper_pickaxe"
+  }
+}
