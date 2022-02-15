@@ -35,7 +35,7 @@ public class Main implements ModInitializer {
 	public static final BlockItemCombo WEATHERED_LANTERN = BlockAdder.AddWeirdBlock(BlockAdder.BlockTypes.Lantern, new Identifier("more_copper", "weathered_copper_lantern"), Blocks.LANTERN, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS));
 	public static final BlockItemCombo OXIDIZED_LANTERN = BlockAdder.AddWeirdBlock(BlockAdder.BlockTypes.Lantern, new Identifier("more_copper", "oxidized_copper_lantern"), Blocks.LANTERN, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS));
 
-	public static final CopperPickaxe COPPER_PICKAXE = new CopperPickaxe(CopperMaterial.INSTANCE, 0, 1, new FabricItemSettings());
+	public static final CopperPickaxe COPPER_PICKAXE = new CopperPickaxe(CopperMaterial.INSTANCE, 0, 1, new FabricItemSettings().group(ItemGroup.TOOLS));
 
 
 	@Override

@@ -20,7 +20,7 @@ public class CopperMiningTool extends MiningToolItem {
     public static String blocksMined = "blocksMined";
     @Override
     public float getMiningSpeedMultiplier(ItemStack stack, BlockState state) {
-        return (float) Math.floor(stack.getOrCreateNbt().getInt(blocksMined) / 50f) * 2;
+        return (float) Math.floor(stack.getOrCreateNbt().getInt(blocksMined) / 50f) * 2.75f;
     }
 
     @Override

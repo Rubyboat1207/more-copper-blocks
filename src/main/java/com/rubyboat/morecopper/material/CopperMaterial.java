@@ -1,7 +1,9 @@
 package com.rubyboat.morecopper.material;
 
+import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
+import net.minecraft.tag.ItemTags;
 
 public class CopperMaterial implements ToolMaterial {
     float miningSpeed = 0;
@@ -34,11 +36,11 @@ public class CopperMaterial implements ToolMaterial {
 
     @Override
     public int getEnchantability() {
-        return 18;
+        return -32;
     }
 
     @Override
     public Ingredient getRepairIngredient() {
-        return null;
+        return Ingredient.fromTag(new OxidizedCopperTag());
     }
 }
