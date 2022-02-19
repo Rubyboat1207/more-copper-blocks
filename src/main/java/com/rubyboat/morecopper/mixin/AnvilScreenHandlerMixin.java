@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class AnvilScreenHandlerMixin {
 	@Inject(at = @At("HEAD"), method = "onTakeOutput", cancellable = true)
 	private void onTakeOutput(PlayerEntity player, ItemStack stack, CallbackInfo ci) {
-		if(stack.getItem() == Main.COPPER_PICKAXE && stack.getEnchantments().contains(Enchantments.UNBREAKING ))
+		if(stack.isOf(Main.COPPER_PICKAXE) && stack.getEnchantments().contains(Enchantments.UNBREAKING ))
 		{
 			stack.setRepairCost(0);
 			stack.getEnchantments().clear();

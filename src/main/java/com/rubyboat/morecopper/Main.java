@@ -7,6 +7,7 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Items;
 import net.minecraft.sound.BlockSoundGroup;
@@ -39,10 +40,13 @@ public class Main implements ModInitializer {
 	public static final CopperPickaxe COPPER_PICKAXE = new CopperPickaxe(0, 0, CopperMaterial.INSTANCE, BlockTags.PICKAXE_MINEABLE, new FabricItemSettings().group(ItemGroup.TOOLS));
 	public static final CopperPickaxe COPPER_AXE = new CopperPickaxe(2, 0, CopperMaterial.INSTANCE, BlockTags.AXE_MINEABLE, new FabricItemSettings().group(ItemGroup.TOOLS));
 
+	public static final Item CopperTotem = new Item(new FabricItemSettings().group(ItemGroup.COMBAT));
+
 	@Override
 	public void onInitialize() {
 		BlockAdder.Initialize();
 		Registry.register(Registry.ITEM, new Identifier("more_copper", "copper_pickaxe"), COPPER_PICKAXE);
+		Registry.register(Registry.ITEM, new Identifier("more_copper", "copper_totem"), CopperTotem);
 		LOGGER.info("Hello Fabric world!");
 	}
 
