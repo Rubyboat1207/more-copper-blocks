@@ -62,8 +62,8 @@ public abstract class TotemMixin {
                     this.clearStatusEffects();
                     this.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 200, 1));
                     this.addStatusEffect(new StatusEffectInstance(StatusEffects.JUMP_BOOST, 200, 1));
-                    this.addStatusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 200, 1));
-                    ((LivingEntity)(Object)this).world.sendEntityStatus(((LivingEntity)(Object)this), (byte)97);
+                    this.addStatusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 200, 4));
+                    ((LivingEntity)(Object)this).world.sendEntityStatus(((LivingEntity)(Object)this), (byte)100);
 
                 }
             }
