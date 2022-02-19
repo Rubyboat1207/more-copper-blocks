@@ -13,6 +13,5 @@ public class ClientMain implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         Main.LOGGER.info("Client Loaded");
-        FabricModelPredicateProviderRegistry.register(Main.COPPER_PICKAXE, new Identifier("more_copper","blocks_mined"), (stack, world, entity, seed) -> (float) stack.getOrCreateNbt().getInt(CopperMiningTool.blocksMined));
     }
 }
