@@ -13,6 +13,7 @@ import net.minecraft.item.Items;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -40,7 +41,7 @@ public class Main implements ModInitializer {
 	public static final CopperPickaxe COPPER_PICKAXE = new CopperPickaxe(0, 0, CopperMaterial.INSTANCE, BlockTags.PICKAXE_MINEABLE, new FabricItemSettings().group(ItemGroup.TOOLS));
 	public static final CopperPickaxe COPPER_AXE = new CopperPickaxe(2, 0, CopperMaterial.INSTANCE, BlockTags.AXE_MINEABLE, new FabricItemSettings().group(ItemGroup.TOOLS));
 
-	public static final Item CopperTotem = new Item(new FabricItemSettings().group(ItemGroup.COMBAT));
+	public static final Item CopperTotem = new Item(new FabricItemSettings().group(ItemGroup.COMBAT).maxCount(1).rarity(Rarity.UNCOMMON));
 
 	@Override
 	public void onInitialize() {
