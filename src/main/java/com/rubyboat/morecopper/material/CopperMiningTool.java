@@ -17,15 +17,5 @@ public class CopperMiningTool extends MiningToolItem {
     protected CopperMiningTool(float attackDamage, float attackSpeed, ToolMaterial material, Tag<Block> effectiveBlocks, Settings settings) {
         super(attackDamage, attackSpeed, material, effectiveBlocks, settings);
     }
-    public static String blocksMined = "blocksMined";
-    @Override
-    public float getMiningSpeedMultiplier(ItemStack stack, BlockState state) {
-        return (float) Math.floor(stack.getOrCreateNbt().getInt(blocksMined) / 50f) * 2.75f;
-    }
 
-    @Override
-    public boolean postMine(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner) {
-        stack.getOrCreateNbt().putInt(blocksMined, stack.getOrCreateNbt().getInt(blocksMined) + 1);
-        return super.postMine(stack, world, state, pos, miner);
-    }
 }
