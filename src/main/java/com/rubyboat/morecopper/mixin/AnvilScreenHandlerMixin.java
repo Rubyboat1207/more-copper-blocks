@@ -1,6 +1,7 @@
 package com.rubyboat.morecopper.mixin;
 
 import com.rubyboat.morecopper.Main;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -13,10 +14,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class AnvilScreenHandlerMixin {
 	@Inject(at = @At("HEAD"), method = "onTakeOutput", cancellable = true)
 	private void onTakeOutput(PlayerEntity player, ItemStack stack, CallbackInfo ci) {
-		if(stack.isOf(Main.COPPER_PICKAXE) && stack.getEnchantments().contains(Enchantments.UNBREAKING ))
+		if((stack.isOf(Main.COPPER_PICKAXE) || stack.isOf(Main.COPPER_AXE) || stack.isOf(Main.COPPER_SHOVEL)))
 		{
-			stack.setRepairCost(0);
-			stack.getEnchantments().clear();
+			if(EnchantmentHelper.getLevel(Enchantments.MENDING, stack) != 0)
+			{
+				stack.setRepairCost(0);
+				stack.getEnchantments().clear();
+			}
 		}
 	}
 }
