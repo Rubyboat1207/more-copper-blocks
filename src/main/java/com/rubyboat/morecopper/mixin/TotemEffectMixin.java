@@ -16,6 +16,7 @@ import net.minecraft.network.packet.s2c.play.EntityStatusS2CPacket;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
+import net.minecraft.text.Text;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -25,6 +26,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(ClientPlayNetworkHandler.class)
 public abstract class TotemEffectMixin {
+
     @Shadow @Final private MinecraftClient client;
 
     @Shadow private ClientWorld world;
@@ -39,7 +41,7 @@ public abstract class TotemEffectMixin {
         NetworkThreadUtils.forceMainThread(packet, ((ClientPlayNetworkHandler)(Object)this), this.client);
         Entity entity = packet.getEntity(this.world);
         if (entity != null) {
-            if (packet.getStatus() == 97) {
+            if (packet.getStatus() == 100) {
                 this.client.particleManager.addEmitter(entity, ParticleTypes.TOTEM_OF_UNDYING, 30);
                 this.world.playSound(entity.getX(), entity.getY(), entity.getZ(), SoundEvents.ITEM_TOTEM_USE, entity.getSoundCategory(), 1.0F, 1.0F, false);
                 if (entity == this.client.player) {
@@ -54,15 +56,13 @@ public abstract class TotemEffectMixin {
         Hand[] var1 = Hand.values();
         int var2 = var1.length;
 
-        for(int var3 = 0; var3 < var2; ++var3) {
+        for (int var3 = 0; var3 < var2; ++var3) {
             Hand hand = var1[var3];
             ItemStack itemStack = player.getStackInHand(hand);
             if (itemStack.isOf(Main.CopperTotem)) {
                 return itemStack;
             }
         }
-
-        return new ItemStack(Main.CopperTotem);
+        return null;
     }
-
 }
