@@ -1,12 +1,8 @@
 package com.rubyboat.morecopper;
 
-import com.rubyboat.morecopper.material.CopperMiningTool;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.fabricmc.fabric.api.object.builder.v1.client.model.FabricModelPredicateProviderRegistry;
-import net.minecraft.util.Identifier;
-import org.apache.logging.log4j.Level;
 
 @Environment(EnvType.CLIENT)
 public class ClientMain implements ClientModInitializer {

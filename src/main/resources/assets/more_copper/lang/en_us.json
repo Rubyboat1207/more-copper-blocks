@@ -11,6 +11,7 @@
     "block.more_copper.weathered_copper_lantern": "Weathered Copper Lantern",
     "block.more_copper.oxidized_copper_lantern": "Oxidized Copper Lantern",
     "item.more_copper.copper_pickaxe": "Copper Pickaxe",
-    "item.more_copper.copper_totem": "Copper Totem"
-
+    "item.more_copper.copper_totem": "Copper Totem",
+    "item.more_copper.copper_axe": "Copper Axe",
+    "item.more_copper.copper_shovel": "Copper Shovel"
 }

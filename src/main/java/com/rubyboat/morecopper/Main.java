@@ -1,7 +1,7 @@
 package com.rubyboat.morecopper;
 
 import com.rubyboat.morecopper.material.CopperMaterial;
-import com.rubyboat.morecopper.material.CopperTools.CopperPickaxe;
+import com.rubyboat.morecopper.material.CopperTools.CopperMiningTool;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -10,7 +10,6 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
-import net.minecraft.item.Items;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.sound.BlockSoundGroup;
@@ -41,8 +40,9 @@ public class Main implements ModInitializer {
 	public static final BlockItemCombo WEATHERED_LANTERN = BlockAdder.AddWeirdBlock(BlockAdder.BlockTypes.Lantern, new Identifier("more_copper", "weathered_copper_lantern"), Blocks.LANTERN, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS));
 	public static final BlockItemCombo OXIDIZED_LANTERN = BlockAdder.AddWeirdBlock(BlockAdder.BlockTypes.Lantern, new Identifier("more_copper", "oxidized_copper_lantern"), Blocks.LANTERN, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS));
 
-	public static final CopperPickaxe COPPER_PICKAXE = new CopperPickaxe(0, 0, CopperMaterial.INSTANCE, BlockTags.PICKAXE_MINEABLE, new FabricItemSettings().group(ItemGroup.TOOLS));
-	public static final CopperPickaxe COPPER_AXE = new CopperPickaxe(2, 0, CopperMaterial.INSTANCE, BlockTags.AXE_MINEABLE, new FabricItemSettings().group(ItemGroup.TOOLS));
+	public static final CopperMiningTool COPPER_PICKAXE = new CopperMiningTool(0, 0, CopperMaterial.INSTANCE, BlockTags.PICKAXE_MINEABLE, new FabricItemSettings().group(ItemGroup.TOOLS));
+	public static final CopperMiningTool COPPER_AXE = new CopperMiningTool(6, 0, CopperMaterial.INSTANCE, BlockTags.AXE_MINEABLE, new FabricItemSettings().group(ItemGroup.TOOLS));
+	public static final CopperMiningTool COPPER_SHOVEL = new CopperMiningTool(2, 0, CopperMaterial.INSTANCE, BlockTags.SHOVEL_MINEABLE, new FabricItemSettings().group(ItemGroup.TOOLS));
 
 	public static final Item CopperTotem = new Item(new FabricItemSettings().group(ItemGroup.COMBAT).maxCount(1).rarity(Rarity.UNCOMMON));
 
@@ -50,6 +50,8 @@ public class Main implements ModInitializer {
 	public void onInitialize() {
 		BlockAdder.Initialize();
 		Registry.register(Registry.ITEM, new Identifier("more_copper", "copper_pickaxe"), COPPER_PICKAXE);
+		Registry.register(Registry.ITEM, new Identifier("more_copper", "copper_axe"), COPPER_AXE);
+		Registry.register(Registry.ITEM, new Identifier("more_copper", "copper_shovel"), COPPER_SHOVEL);
 		Registry.register(Registry.ITEM, new Identifier("more_copper", "copper_totem"), CopperTotem);
 		LOGGER.info("Hello Fabric world!");
 		CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
