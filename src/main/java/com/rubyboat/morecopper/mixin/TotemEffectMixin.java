@@ -10,10 +10,12 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.mob.GuardianEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.network.NetworkThreadUtils;
 import net.minecraft.network.packet.s2c.play.EntityStatusS2CPacket;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.Hand;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -41,13 +43,26 @@ public abstract class TotemEffectMixin {
                 this.client.particleManager.addEmitter(entity, ParticleTypes.TOTEM_OF_UNDYING, 30);
                 this.world.playSound(entity.getX(), entity.getY(), entity.getZ(), SoundEvents.ITEM_TOTEM_USE, entity.getSoundCategory(), 1.0F, 1.0F, false);
                 if (entity == this.client.player) {
-                    this.client.gameRenderer.showFloatingItem(new ItemStack(Main.CopperTotem, 1));
+                    this.client.gameRenderer.showFloatingItem(getActiveCopperTotem(this.client.player));
                 }
-            } else {
-                entity.handleStatus(packet.getStatus());
             }
         }
 
+    }
+
+    private static ItemStack getActiveCopperTotem(PlayerEntity player) {
+        Hand[] var1 = Hand.values();
+        int var2 = var1.length;
+
+        for(int var3 = 0; var3 < var2; ++var3) {
+            Hand hand = var1[var3];
+            ItemStack itemStack = player.getStackInHand(hand);
+            if (itemStack.isOf(Main.CopperTotem)) {
+                return itemStack;
+            }
+        }
+
+        return new ItemStack(Main.CopperTotem);
     }
 
 }
