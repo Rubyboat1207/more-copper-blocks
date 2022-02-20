@@ -5,8 +5,8 @@
   "compatibilityLevel": "JAVA_16",
   "mixins": [
     "AnvilScreenHandlerMixin",
-    "TotemMixin",
-    "TotemEffectMixin"
+    "TotemEffectMixin",
+    "TotemMixin"
   ],
   "client": [
   ],

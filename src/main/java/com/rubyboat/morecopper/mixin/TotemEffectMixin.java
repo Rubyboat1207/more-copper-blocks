@@ -47,6 +47,9 @@ public abstract class TotemEffectMixin {
                 if (entity == this.client.player) {
                     this.client.gameRenderer.showFloatingItem(getActiveCopperTotem(this.client.player));
                 }
+            }else if(packet.getStatus() == 98)
+            {
+                this.client.gameRenderer.showFloatingItem(this.client.player.getStackInHand(Hand.MAIN_HAND));
             }
         }
 

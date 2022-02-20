@@ -3,6 +3,7 @@ package com.rubyboat.morecopper;
 import com.rubyboat.morecopper.material.CopperMaterial;
 import com.rubyboat.morecopper.material.CopperTools.CopperPickaxe;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Blocks;
@@ -10,6 +11,8 @@ import net.minecraft.block.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Items;
+import net.minecraft.server.command.CommandManager;
+import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.util.Identifier;
@@ -49,6 +52,13 @@ public class Main implements ModInitializer {
 		Registry.register(Registry.ITEM, new Identifier("more_copper", "copper_pickaxe"), COPPER_PICKAXE);
 		Registry.register(Registry.ITEM, new Identifier("more_copper", "copper_totem"), CopperTotem);
 		LOGGER.info("Hello Fabric world!");
+		CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
+			dispatcher.register(CommandManager.literal("floatItem").executes(context -> {
+				ServerCommandSource source = (ServerCommandSource) context.getSource();
+				source.getEntity().world.sendEntityStatus(source.getEntity(), (byte)98);
+				return 1;
+			}));
+		});
 	}
 
 }
