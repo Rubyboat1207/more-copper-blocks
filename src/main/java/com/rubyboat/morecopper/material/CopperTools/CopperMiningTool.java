@@ -20,24 +20,28 @@ import java.util.Optional;
 
 public class CopperMiningTool extends MiningToolItem {
     public static String blocksMined = "blocksMined";
-    public static Tag<Block> EffectiveBlocks;
+    public Tag<Block> EffectiveBlocks;
     public CopperMiningTool(float attackDamage, float attackSpeed, ToolMaterial material, Tag<Block> effectiveBlocks, Settings settings) {
         super(attackDamage, attackSpeed, material, effectiveBlocks, settings);
         EffectiveBlocks = effectiveBlocks;
     }
     public float getMiningSpeedLevel(ItemStack stack)
     {
-        return (float) Math.floor(stack.getOrCreateNbt().getInt(blocksMined) / 50f) * 2.75f;
+        return (float) Math.floor(stack.getOrCreateNbt().getInt(blocksMined) / 50f);
     }
 
     @Override
     public float getMiningSpeedMultiplier(ItemStack stack, BlockState state) {
-        return CopperMiningTool.EffectiveBlocks.contains(state.getBlock()) ?  getMiningSpeedLevel(stack) : this.miningSpeed;
+        if(this.EffectiveBlocks.contains(state.getBlock()))
+        {
+            return getMiningSpeedLevel(stack) * 2.75f;
+        }
+        return super.getMiningSpeedMultiplier(stack, state);
     }
 
     @Override
     public boolean postMine(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner) {
-        stack.getOrCreateNbt().putInt(blocksMined, stack.getOrCreateNbt().getInt(blocksMined) + ((BlockTags.PICKAXE_MINEABLE.contains(world.getBlockState(pos).getBlock()) ? 0 : 1)));
+        stack.getOrCreateNbt().putInt(blocksMined, stack.getOrCreateNbt().getInt(blocksMined) + ((EffectiveBlocks.contains(world.getBlockState(pos).getBlock()) ? 0 : 1)));
         return super.postMine(stack, world, state, pos, miner);
     }
 

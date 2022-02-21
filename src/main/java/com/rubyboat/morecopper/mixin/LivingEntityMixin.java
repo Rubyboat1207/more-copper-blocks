@@ -18,7 +18,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(LivingEntity.class)
-public abstract class TotemMixin {
+public abstract class LivingEntityMixin {
     @Shadow public abstract ItemStack getStackInHand(Hand hand);
 
     @Shadow public abstract void setHealth(float health);

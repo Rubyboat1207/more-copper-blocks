@@ -25,7 +25,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(ClientPlayNetworkHandler.class)
-public abstract class TotemEffectMixin {
+public abstract class ClientPlayNetworkHandlerMixin {
 
     @Shadow @Final private MinecraftClient client;
 
