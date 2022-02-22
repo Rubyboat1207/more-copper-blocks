@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#D#",
+    "###",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:dirt"
+    },
+    "D": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "more_copper:copper_totem"
+  }
+}
